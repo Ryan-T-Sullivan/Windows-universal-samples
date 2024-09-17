@@ -1,4 +1,4 @@
-﻿//*********************************************************
+//*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
 // This code is licensed under the MIT License (MIT).
@@ -24,8 +24,8 @@ namespace SDKTemplate
     /// </summary>
     class WordOverlay : INotifyPropertyChanged
     {
-        private OcrWord word;
         private Rect wordBoundingRect;
+        private Rect scaledWordBoundingRect;
 
         /// <summary>
         /// Left and Right properties of Thickess define word box position.
@@ -35,26 +35,31 @@ namespace SDKTemplate
         /// <summary>
         /// Scaled word box width.
         /// </summary>
-        public double WordWidth => wordBoundingRect.Width;
+        public double WordWidth => scaledWordBoundingRect.Width;
 
         /// <summary>
         /// Scaled word box height.
         /// </summary>
-        public double WordHeight => wordBoundingRect.Height;
+        public double WordHeight => scaledWordBoundingRect.Height;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public WordOverlay(Rect rect)
+        {
+            wordBoundingRect = rect;
+        }
+
         public WordOverlay(OcrWord ocrWord)
         {
-            word = ocrWord;
+            wordBoundingRect = ocrWord.BoundingRect;
 
-            UpdateProps(word.BoundingRect);
+            UpdateProps(wordBoundingRect);
         }
 
         public void Transform(ScaleTransform scale)
         {
             // Scale word box bounding rect and update properties.
-            UpdateProps(scale.TransformBounds(word.BoundingRect));
+            UpdateProps(scale.TransformBounds(wordBoundingRect));
         }
 
         public Border CreateBorder(Style style, UIElement child = null)
@@ -77,7 +82,7 @@ namespace SDKTemplate
 
         private void UpdateProps(Rect wordBoundingBox)
         {
-            wordBoundingRect = wordBoundingBox;
+            scaledWordBoundingRect = wordBoundingBox;
 
             OnPropertyChanged("WordPosition");
             OnPropertyChanged("WordWidth");

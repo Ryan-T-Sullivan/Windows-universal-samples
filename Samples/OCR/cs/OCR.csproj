@@ -5,6 +5,9 @@
     <SharedContentDir>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), LICENSE))\SharedContent</SharedContentDir>
   </PropertyGroup>
   <PropertyGroup>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <ProjectGuid>{33AF4F1E-B001-50AC-92DD-FEEAE79F542A}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
@@ -170,8 +173,93 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>5.0.0</Version>
+      <Version>6.2.14</Version>
     </PackageReference>
+    <PackageReference Include="Tesseract">
+      <Version>5.2.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="tessdata\configs\alto" />
+    <None Include="tessdata\configs\ambigs.train" />
+    <None Include="tessdata\configs\api_config" />
+    <None Include="tessdata\configs\bigram" />
+    <None Include="tessdata\configs\box.train" />
+    <None Include="tessdata\configs\box.train.stderr" />
+    <None Include="tessdata\configs\digits" />
+    <None Include="tessdata\configs\get.images" />
+    <None Include="tessdata\configs\hocr" />
+    <None Include="tessdata\configs\inter" />
+    <None Include="tessdata\configs\kannada" />
+    <None Include="tessdata\configs\linebox" />
+    <None Include="tessdata\configs\logfile" />
+    <None Include="tessdata\configs\lstm.train" />
+    <None Include="tessdata\configs\lstmbox" />
+    <None Include="tessdata\configs\lstmdebug" />
+    <None Include="tessdata\configs\makebox" />
+    <None Include="tessdata\configs\pdf" />
+    <None Include="tessdata\configs\quiet" />
+    <None Include="tessdata\configs\rebox" />
+    <None Include="tessdata\configs\strokewidth" />
+    <None Include="tessdata\configs\tsv" />
+    <None Include="tessdata\configs\txt" />
+    <None Include="tessdata\configs\unlv" />
+    <None Include="tessdata\configs\wordstrbox" />
+    <Content Include="tessdata\deu.traineddata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tessdata\eng.traineddata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tessdata\fra.traineddata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tessdata\ita.traineddata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="tessdata\script\Arabic.traineddata" />
+    <None Include="tessdata\script\Armenian.traineddata" />
+    <None Include="tessdata\script\Bengali.traineddata" />
+    <None Include="tessdata\script\Canadian_Aboriginal.traineddata" />
+    <None Include="tessdata\script\Cherokee.traineddata" />
+    <None Include="tessdata\script\Cyrillic.traineddata" />
+    <None Include="tessdata\script\Devanagari.traineddata" />
+    <None Include="tessdata\script\Ethiopic.traineddata" />
+    <None Include="tessdata\script\Fraktur.traineddata" />
+    <None Include="tessdata\script\Georgian.traineddata" />
+    <None Include="tessdata\script\Greek.traineddata" />
+    <None Include="tessdata\script\Gujarati.traineddata" />
+    <None Include="tessdata\script\Gurmukhi.traineddata" />
+    <None Include="tessdata\script\Hangul.traineddata" />
+    <None Include="tessdata\script\Hangul_vert.traineddata" />
+    <None Include="tessdata\script\HanS.traineddata" />
+    <None Include="tessdata\script\HanS_vert.traineddata" />
+    <None Include="tessdata\script\HanT.traineddata" />
+    <None Include="tessdata\script\HanT_vert.traineddata" />
+    <None Include="tessdata\script\Hebrew.traineddata" />
+    <None Include="tessdata\script\Japanese.traineddata" />
+    <None Include="tessdata\script\Japanese_vert.traineddata" />
+    <None Include="tessdata\script\Kannada.traineddata" />
+    <None Include="tessdata\script\Khmer.traineddata" />
+    <None Include="tessdata\script\Lao.traineddata" />
+    <None Include="tessdata\script\Latin.traineddata" />
+    <None Include="tessdata\script\Malayalam.traineddata" />
+    <None Include="tessdata\script\Myanmar.traineddata" />
+    <None Include="tessdata\script\Oriya.traineddata" />
+    <None Include="tessdata\script\Sinhala.traineddata" />
+    <None Include="tessdata\script\Syriac.traineddata" />
+    <None Include="tessdata\script\Tamil.traineddata" />
+    <None Include="tessdata\script\Telugu.traineddata" />
+    <None Include="tessdata\script\Thaana.traineddata" />
+    <None Include="tessdata\script\Thai.traineddata" />
+    <None Include="tessdata\script\Tibetan.traineddata" />
+    <None Include="tessdata\script\Vietnamese.traineddata" />
+    <None Include="tessdata\tessconfigs\batch" />
+    <None Include="tessdata\tessconfigs\batch.nochop" />
+    <None Include="tessdata\tessconfigs\matdemo" />
+    <None Include="tessdata\tessconfigs\msdemo" />
+    <None Include="tessdata\tessconfigs\nobatch" />
+    <None Include="tessdata\tessconfigs\segdemo" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

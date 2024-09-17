@@ -295,7 +295,7 @@ namespace SDKTemplate
         private void PreviewImage_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             UpdateWordBoxTransform();
-
+            /*
             // Update image rotation center.
             var rotate = TextOverlay.RenderTransform as RotateTransform;
             if (rotate != null)
@@ -303,6 +303,7 @@ namespace SDKTemplate
                 rotate.CenterX = PreviewImage.ActualWidth / 2;
                 rotate.CenterY = PreviewImage.ActualHeight / 2;
             }
+            */
         }
 
         #region MediaCapture methods
